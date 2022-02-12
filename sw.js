@@ -4,7 +4,7 @@ const urlsToCache = [
     "/chronic",
     "/settings",
     "/script.js",
-    "/style.css"
+    "/styles.css"
 ];
 
 self.addEventListener("install", (event) => {
