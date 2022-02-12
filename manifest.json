@@ -1,0 +1,30 @@
+{
+  "short_name": "Arbeitszeit",
+  "name": "Arbeitszeit",
+  "icons": [
+    {
+      "src": "/icon/512x512.png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/icon/192x192.png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#1B3B7F",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#1B3B7F",
+  "shortcuts": [
+    {
+      "name": "Chronik",
+      "url": "/chronic"
+    },
+    {
+      "name": "Einstellungen",
+      "url": "/settings"
+    }
+  ],
+  "description": "Arbeitszeit Messrechner"
+}

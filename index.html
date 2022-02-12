@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Arbeitszeit</title>
+    <meta name="author" content="Fabian Dietrich">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/script.js"></script>
+
+</head>
+
+<body>
+
+<header>
+
+    <div id="hamburger"
+         onclick="let e = document.getElementsByTagName('nav')[0];if(e.style.left === '0px') showPage(location.pathname); else {e.style.left='0';document.getElementById('title').innerHTML='&nbsp;';}">
+        <span></span><span></span><span></span></div>
+
+    <div id="title">Arbeitszeit</div>
+
+</header>
+
+<nav>
+
+    <ul>
+        <li><a href="/">Arbeitszeit</a></li>
+        <li><a href="/chronic">Chronik</a></li>
+        <li><a href="/settings">Einstellungen</a></li>
+    </ul>
+
+</nav>
+
+<main id="main" style="display: none;">
+
+    <div>
+        <div>Heute</div>
+        <div id="counter-today">00:00</div>
+    </div>
+
+    <div>
+        <div>Monat</div>
+        <div id="counter-month">00:00</div>
+    </div>
+
+    <div>
+        <div>Verbleibend</div>
+        <div id="counter-goal">00:00</div>
+    </div>
+
+    <button onclick="timerClick(this);">Start</button>
+
+</main>
+
+<main id="chronic" style="display: none;">
+
+    <ul>
+        <li>
+            Februar
+            <ul>
+                <li>
+                    12. Februar
+                    <ul>
+                        <li>12:34 - 16:03 Uhr</li>
+                        <li>17:45 - 18:22 Uhr</li>
+                    </ul>
+                </li>
+                <li>
+                    11. Februar
+                    <ul>
+                        <li>12:34 - 16:03 Uhr</li>
+                        <li>17:45 - 18:22 Uhr</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            Januar
+            <ul>
+                <li>
+                    12. Januar
+                    <ul>
+                        <li>12:34 - 16:03 Uhr</li>
+                        <li>17:45 - 18:22 Uhr</li>
+                    </ul>
+                </li>
+                <li>
+                    11. Januar
+                    <ul>
+                        <li>12:34 - 16:03 Uhr</li>
+                        <li>17:45 - 18:22 Uhr</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+</main>
+
+<main id="settings" style="display: block;">
+
+    <form onsubmit="saveSettings(); return false;">
+
+        <label for="monthlyGoal">Monatliches Ziel</label>
+        <input id="monthlyGoal" name="monthlyGoal" type="number" min="1" max="744" placeholder="Stunden"
+               style="width: 60px;">
+
+        <button type="submit">Speichern</button>
+
+    </form>
+
+</main>
+
+<main id="error-404" style="display: none;">
+
+    Die von Ihnen angeforderte Seite konnte nicht gefunden werden.
+
+</main>
+
+<script>
+    window.addEventListener("load", () => {
+        if ("serviceWorker" in navigator)
+            navigator.serviceWorker.register("/sw.js");
+    });
+    updateFunction();
+    window.onpopstate(null);
+    document.querySelectorAll("nav a").forEach((a) => a.onclick = () => {
+        history.pushState(a.href, null, a.href);
+        showPage(location.pathname);
+        return false;
+    });
+</script>
+
+</body>
+
+</html>

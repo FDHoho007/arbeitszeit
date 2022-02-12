@@ -1,0 +1,164 @@
+html {
+    --color-primary: #1B3B7F;
+    --color-background: #DEE8F8;
+}
+
+html.theme-violet {
+    --color-primary: #92278F;
+    --color-background: rgb(241, 204, 240);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    background-color: var(--color-background);
+    position: absolute;
+    width: 100%;
+    height: 75px;
+    z-index: 20;
+}
+
+#hamburger {
+    position: absolute;
+    padding: 29px 36px;
+    cursor: pointer;
+}
+
+#hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--color-primary);
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -12.5px;
+    margin-top: -1.5px;
+}
+
+#hamburger span:nth-child(1) {
+    transform: translate3d(0, 0, 0);
+}
+
+#hamburger span:nth-child(2) {
+    transform: translate3d(0, 8px, 0);
+}
+
+#hamburger span:nth-child(3) {
+    transform: translate3d(0, 16px, 0);
+}
+
+
+nav {
+    background: white;
+    position: absolute;
+    top: 0;
+    box-shadow: 0 0 15px 5px #00000090;
+    height: 100%;
+    font-size: 27pt;
+    z-index: 10;
+    left: -80%;
+    width: 75%;
+    transition: 0.3s left ease-in-out;
+    padding: 90px 20px 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin: 10px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+#title {
+    text-align: center;
+    color: var(--color-primary);
+    font-size: 30pt;
+    line-height: 75px;
+    box-shadow: 0 0 15px 5px #00000090;
+    font-weight: bold;
+}
+
+main {
+    padding: 95px 20px 20px;
+    color: var(--color-primary);
+}
+
+#main {
+    text-align: center;
+    font-size: 30pt;
+    position: absolute;
+    height: calc(100% - 75px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#main > div {
+    margin-bottom: 30px;
+}
+
+#main > div > div:first-child {
+    margin-bottom: 10px;
+}
+
+main button {
+    display: block;
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    font-weight: bold;
+    padding: 20px 70px;
+    font-family: inherit;
+    font-size: 20pt;
+    border-radius: 35px;
+    border: 0;
+    box-shadow: 2px 5px 10px 2px #00000090;
+    margin: 30px auto;
+    text-transform: uppercase;
+}
+
+#main button:active {
+    box-shadow: inset 2px 5px 10px 2px #00000090;
+}
+
+#chronic {
+    font-size: 20pt;
+}
+
+#settings {
+    font-size: 24pt;
+    position: absolute;
+    height: calc(100% - 75px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#monthlyGoal {
+    font-size: 22pt;
+    float: right;
+}
+
+#error-404 {
+    font-size: 18pt;
+    text-align: center;
+    margin-top: 3rem;
+}
